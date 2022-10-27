@@ -9,13 +9,21 @@ package com.mycompany.trabajo_24_10;
  * @author Kristina
  */
 public class Seleccion {
-    String codigoFIFA;
-    String nombre;
-    int participacionesMundial;
-
+    private String codigoFIFA;
+    private String nombre;
+    private int participacionesMundial;
+    private DirectorTecnico seleccionador;
+    
+    public Seleccion(String cF, String n, int nP, DirectorTecnico dt){
+        this.codigoFIFA=cF;
+        this.nombre=n;
+        this.participacionesMundial=nP;
+        this.seleccionador=dt;
+    }
+    
     public String obtienePais(){
         var retorno="Desconocido";
-
+                
         switch (codigoFIFA) {
             case "ECU":
                 retorno="ECUADOR";
@@ -29,11 +37,44 @@ public class Seleccion {
             case "CHI":
                 retorno="CHILE";
                 break;
-
+            
             default:
                 throw new AssertionError();
         }
-
+        
         return retorno;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
+    public String getNombre(){
+        return this.nombre;
+    }
+
+    public String getCodigoFIFA() {
+        return codigoFIFA;
+    }
+
+    public void setCodigoFIFA(String codigoFIFA) {
+        this.codigoFIFA = codigoFIFA;
+    }
+
+    public int getParticipacionesMundial() {
+        return participacionesMundial;
+    }
+
+    public void setParticipacionesMundial(int participacionesMundial) {
+        this.participacionesMundial = participacionesMundial;
+    }
+
+    public DirectorTecnico getSeleccionador() {
+        return seleccionador;
+    }
+
+    public void setSeleccionador(DirectorTecnico seleccionador) {
+        this.seleccionador = seleccionador;
     }
 }
